@@ -10,12 +10,13 @@
    VARIABLES - Bold, warm, editorial
    ================================================================ */
 :root {
-    --burnt-orange: #CC5803;
+    --burnt-orange: #FFFEF9;
     --deep-olive: #2F3E21;
     --warm-cream: #FFF8F0;
-    --terracotta: #E07A5F;
+    --terracotta: #FFFEF9;
     --charcoal: #1C1C1C;
     --soft-white: #FFFEF9;
+    --dark-text: #121212;
 
     /* Typography */
     --font-display: 'Cormorant Garamond', Georgia, serif;
@@ -140,7 +141,7 @@ nav {
     font-size: clamp(4rem, 15vw, 12rem);
     font-weight: 600;
     line-height: 0.9;
-    color: var(--soft-white);
+    color: var(--dark-text);
     text-align: center;
     position: relative;
     z-index: 2;
@@ -180,7 +181,7 @@ nav {
     font-family: var(--font-editorial);
     font-size: 1.5rem;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--dark-text);
     text-align: center;
     z-index: 2;
 }
