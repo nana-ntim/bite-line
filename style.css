@@ -136,44 +136,55 @@ nav {
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-soft);
     width: calc(100% - 3rem);
-    max-width: 900px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    max-width: 800px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
     color: var(--charcoal);
     letter-spacing: -0.02em;
+    flex-shrink: 0;
 }
 
 .nav-menu {
     display: flex;
-    gap: 2.5rem;
+    align-items: center;
+    gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.nav-menu a {
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a:not(.nav-btn) {
     color: var(--soft-charcoal);
     font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     position: relative;
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
 }
 
-.nav-menu a::after {
+.nav-menu a:not(.nav-btn)::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -185,12 +196,36 @@ nav {
     transition: width 0.3s ease;
 }
 
-.nav-menu a:hover::after {
+.nav-menu a:not(.nav-btn):hover::after {
     width: 100%;
 }
 
-.nav-menu a:hover {
+.nav-menu a:not(.nav-btn):hover {
     color: var(--charcoal);
+}
+
+/* Nav Button - Join Beta */
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.25rem;
+    background: var(--charcoal);
+    color: white !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: var(--accent-green);
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.nav-btn::after {
+    display: none !important;
 }
 
 /* Mobile nav toggle */
@@ -200,10 +235,12 @@ nav {
     gap: 5px;
     cursor: pointer;
     padding: 0.5rem;
+    background: none;
+    border: none;
 }
 
 .nav-toggle span {
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: var(--charcoal);
     border-radius: 2px;
@@ -1006,20 +1043,45 @@ footer {
     .nav-menu {
         display: none;
         position: absolute;
-        top: 100%;
+        top: calc(100% + 0.75rem);
         left: 0;
         right: 0;
         background: white;
         flex-direction: column;
-        padding: 1.5rem;
-        gap: 1rem;
-        margin-top: 1rem;
+        align-items: stretch;
+        padding: 1.25rem;
+        gap: 0.5rem;
         border-radius: var(--radius-lg);
         box-shadow: var(--shadow-medium);
     }
 
     .nav-menu.active {
         display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+    }
+
+    .nav-menu a:not(.nav-btn) {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: var(--radius-sm);
+    }
+
+    .nav-menu a:not(.nav-btn):hover {
+        background: var(--light-gray);
+    }
+
+    .nav-menu a:not(.nav-btn)::after {
+        display: none;
+    }
+
+    .nav-btn {
+        display: block;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding: 0.85rem 1.25rem;
     }
 
     .nav-toggle {
