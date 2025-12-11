@@ -1,0 +1,599 @@
+/* ================================================================
+   BITE-LINE - BOLD EDITORIAL EXPERIENCE
+   Brutalist typography meets warm sophistication
+   Kinetic, artistic, unforgettable
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;700&family=Crimson+Text:ital@0;1&display=swap');
+
+/* ================================================================
+   VARIABLES - Bold, warm, editorial
+   ================================================================ */
+:root {
+    --burnt-orange: #CC5803;
+    --deep-olive: #2F3E21;
+    --warm-cream: #FFF8F0;
+    --terracotta: #E07A5F;
+    --charcoal: #1C1C1C;
+    --soft-white: #FFFEF9;
+
+    /* Typography */
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Space Grotesk', sans-serif;
+    --font-editorial: 'Crimson Text', serif;
+}
+
+/* ================================================================
+   RESET
+   ================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--warm-cream);
+    color: var(--charcoal);
+    line-height: 1.5;
+    overflow-x: hidden;
+    cursor: none;
+    /* Custom cursor */
+}
+
+::selection {
+    background: var(--burnt-orange);
+    color: white;
+}
+
+/* ================================================================
+   CUSTOM CURSOR - Artistic touch
+   ================================================================ */
+.cursor {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--burnt-orange);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease;
+}
+
+.cursor-follower {
+    width: 8px;
+    height: 8px;
+    background: var(--burnt-orange);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10001;
+    transition: transform 0.15s ease;
+}
+
+/* ================================================================
+   NAVIGATION - Minimal, bold
+   ================================================================ */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
+
+.nav-menu a:hover {
+    opacity: 0.6;
+}
+
+/* ================================================================
+   HERO - Full bleed, kinetic typography
+   ================================================================ */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--burnt-orange) 0%, var(--terracotta) 100%);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 15vw, 12rem);
+    font-weight: 600;
+    line-height: 0.9;
+    color: var(--soft-white);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100px) rotate(-5deg);
+    animation: wordReveal 0.8s forwards;
+}
+
+.hero-title .word:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hero-title .word:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.hero-title .word:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+@keyframes wordReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+.hero-subtitle {
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-editorial);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    z-index: 2;
+}
+
+/* Animated background shapes */
+.shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    left: 70%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(180deg);
+    }
+}
+
+/* ================================================================
+   SECTION - Diagonal split design
+   ================================================================ */
+.split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    position: relative;
+}
+
+.split-left {
+    background: var(--deep-olive);
+    color: var(--soft-white);
+    padding: 8rem 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+}
+
+.split-right {
+    background: var(--warm-cream);
+    padding: 8rem 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================================================================
+   TYPOGRAPHY - Bold, editorial
+   ================================================================ */
+.display-xl {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+}
+
+.display-lg {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.text-lg {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 35ch;
+}
+
+.text-editorial {
+    font-family: var(--font-editorial);
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--burnt-orange);
+}
+
+.label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--burnt-orange);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+/* ================================================================
+   BIG NUMBERS - Statement pieces
+   ================================================================ */
+.number-statement {
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 20vw, 16rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--burnt-orange);
+    opacity: 0.15;
+    position: absolute;
+    z-index: 0;
+}
+
+.stats-bold {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    padding: 8rem 6rem;
+    background: var(--charcoal);
+    color: white;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.7;
+}
+
+/* ================================================================
+   IMAGE TREATMENTS - Artistic
+   ================================================================ */
+.img-art {
+    position: relative;
+    overflow: hidden;
+    background: #ddd;
+}
+
+.img-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: grayscale(20%) contrast(1.1);
+}
+
+.img-art:hover img {
+    transform: scale(1.1);
+}
+
+/* Duotone effect */
+.img-art::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--burnt-orange), transparent);
+    mix-blend-mode: multiply;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* ================================================================
+   COLLAGE - Magazine style
+   ================================================================ */
+.collage-editorial {
+    padding: 8rem 3rem;
+    background: var(--soft-white);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 150px);
+    gap: 1.5rem;
+}
+
+.collage-item {
+    position: relative;
+}
+
+.c1 {
+    grid-column: 1 / 5;
+    grid-row: 1 / 4;
+}
+
+.c2 {
+    grid-column: 5 / 9;
+    grid-row: 2 / 6;
+    z-index: 2;
+}
+
+.c3 {
+    grid-column: 9 / 13;
+    grid-row: 1 / 4;
+}
+
+.c4 {
+    grid-column: 1 / 5;
+    grid-row: 5 / 9;
+}
+
+.c5 {
+    grid-column: 5 / 9;
+    grid-row: 6 / 9;
+}
+
+.c6 {
+    grid-column: 9 / 13;
+    grid-row: 5 / 9;
+}
+
+/* ================================================================
+   TEXT BLOCKS - Editorial
+   ================================================================ */
+.text-block {
+    max-width: 900px;
+    margin: 8rem auto;
+    padding: 0 3rem;
+}
+
+.text-block p {
+    font-family: var(--font-editorial);
+    font-size: 1.75rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--charcoal);
+}
+
+.text-block p:first-letter {
+    font-size: 4rem;
+    font-weight: 600;
+    float: left;
+    line-height: 0.8;
+    margin: 0.1em 0.1em 0 0;
+    color: var(--burnt-orange);
+}
+
+/* ================================================================
+   BUTTONS - Bold statement
+   ================================================================ */
+.btn-bold {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    background: var(--charcoal);
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.btn-bold::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--burnt-orange);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+}
+
+.btn-bold:hover::before {
+    transform: translateX(0);
+}
+
+.btn-bold span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ================================================================
+   FOOTER - Bold, editorial
+   ================================================================ */
+footer {
+    background: var(--charcoal);
+    color: white;
+    padding: 6rem 3rem 3rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+}
+
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-section h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 2;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--terracotta);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+    opacity: 0.5;
+}
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 968px) {
+    .split-section {
+        grid-template-columns: 1fr;
+    }
+
+    .split-left {
+        clip-path: none;
+    }
+
+    .collage-editorial {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .collage-item {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        height: 400px;
+    }
+
+    .stats-bold {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    nav {
+        padding: 1.5rem;
+    }
+
+    .nav-menu {
+        display: none;
+        /* Mobile menu would go here */
+    }
+}
